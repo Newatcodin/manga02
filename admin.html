@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin Panel</title></head>
+<body>
+<h2>Admin Upload Panel</h2>
+<input id="chapter" placeholder="Chapter number"><br><br>
+<input type="file" id="images" multiple><br><br>
+<button onclick="upload()">Upload Chapter</button>
+<script>
+const CLOUD="db5rbto6c";
+const PRESET="manga_upload";
+
+async function upload(){
+  const chapter=document.getElementById("chapter").value;
+  const files=images.files;
+  let urls=[];
+  for(let f of files){
+    let fd=new FormData();
+    fd.append("file",f);
+    fd.append("upload_preset",PRESET);
+    const res=await fetch(`https://api.cloudinary.com/v1_1/${CLOUD}/image/upload`,{method:'POST',body:fd});
+    const data=await res.json();
+    urls.push(data.secure_url);
+  }
+  fetch('data.json').then(r=>r.json()).then(json=>{
+    const manga=json.mangas[0];
+    manga.chapters.push({chapter:parseInt(chapter), images:urls});
+    document.body.insertAdjacentHTML('beforeend','<p>Chapter uploaded successfully! Refresh the page to see it.</p>');
+  });
+}
+</script>
+</body>
+</html>
