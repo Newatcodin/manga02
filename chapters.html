@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chapters</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { background:#0d0d0d; color:white; font-family:Arial,sans-serif; padding:20px; }
+    h2 { text-align:center; margin-bottom:20px; }
+    .chapter { padding:15px; border-bottom:1px solid #222; cursor:pointer; font-size:16px; }
+  </style>
+</head>
+<body>
+<h2>Strangers Bounded by Fate</h2>
+<div id="list"></div>
+<script>
+const API = "https://script.google.com/macros/s/AKfycbxO-jXjC8ypoPn-9K7A6LMerHwgwl7X2C9Ygt6qtLVnqKbKmlA2oCa9ip7hvwzcV5o-Aw/exec";
+
+fetch(API).then(r=>r.json()).then(data=>{
+  data.reverse().forEach(ch=>{
+    let div=document.createElement("div");
+    div.className="chapter";
+    div.innerText="Chapter " + ch.chapter;
+    div.onclick=()=>location.href=`reader.html?chapter=${ch.chapter}`;
+    document.getElementById("list").appendChild(div);
+  });
+});
+</script>
+</body>
+</html>
