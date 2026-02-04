@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Read</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { margin:0; background:black; }
-    img { width:100%; display:block; margin-bottom:10px; }
-  </style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body { margin:0; background:black; }
+img { width:100%; display:block; }
+</style>
 </head>
 <body>
-<div id="pages"></div>
-<script>
-const API = "https://script.google.com/macros/s/AKfycbxO-jXjC8ypoPn-9K7A6LMerHwgwl7X2C9Ygt6qtLVnqKbKmlA2oCa9ip7hvwzcV5o-Aw/exec";
-const chapter = new URLSearchParams(location.search).get("chapter");
 
-fetch(API).then(r=>r.json()).then(data=>{
-  const ch = data.find(c=>c.chapter==chapter);
-  if(!ch){document.body.innerHTML="<h2>Chapter not found</h2>"; return;}
-  ch.images.split(",").forEach(url=>{ 
-    let img=document.createElement("img"); 
-    img.src=url; 
-    document.getElementById("pages").appendChild(img);
+<div id="pages"></div>
+<div id="disqus_thread"></div>
+
+<script>
+const p=new URLSearchParams(location.search);
+fetch("data.json").then(r=>r.json()).then(data=>{
+  const m=data.mangas.find(x=>x.id==p.get("id"));
+  const c=m.chapters.find(x=>x.chapter==p.get("chapter"));
+  c.images.forEach(u=>{
+    const i=document.createElement("img");
+    i.src=u;
+    pages.appendChild(i);
   });
 });
+
+// DISQUS (TEST COMMENTS)
+var disqus_config=function(){
+this.page.url=location.href;
+this.page.identifier=p.get("chapter");
+};
+(function(){
+var d=document,s=d.createElement("script");
+s.src="https://test.disqus.com/embed.js";
+(d.head||d.body).appendChild(s);
+})();
 </script>
+
 </body>
 </html>
