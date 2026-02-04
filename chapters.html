@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>Chapters</title></head>
+<body>
+<h2>Strangers Bounded by Fate</h2>
+<div id="list"></div>
+<script>
+fetch("https://opensheet.elk.sh/YOUR_SHEET_ID/chapters")
+.then(r=>r.json())
+.then(d=>{
+ d.reverse().forEach(c=>{
+  let div=document.createElement("div");
+  div.innerText="Chapter "+c.chapter;
+  div.onclick=()=>location.href=`reader.html?chapter=${c.chapter}`;
+  list.appendChild(div);
+ });
+});
+</script>
+</body>
+</html>

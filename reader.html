@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><title>Read</title></head>
+<body>
+<div id="pages"></div>
+<script>
+const chapter=new URLSearchParams(location.search).get("chapter");
+fetch("https://opensheet.elk.sh/YOUR_SHEET_ID/chapters")
+.then(r=>r.json())
+.then(d=>{
+ const ch=d.find(x=>x.chapter==chapter);
+ if(!ch)return;
+ ch.image_urls.split(",").forEach(u=>{
+  let i=document.createElement("img");
+  i.src=u;
+  i.style.width="100%";
+  pages.appendChild(i);
+ });
+});
+</script>
+</body>
+</html>
