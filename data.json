@@ -1,0 +1,25 @@
+{
+  "mangas": [
+    {
+      "id": 1,
+      "title": "Stranger bounded by fate",
+      "cover": "https://res.cloudinary.com/db5rbto6c/image/upload/v1770222189/cover_page_a0246m.jpg",
+      "chapters": [
+        {
+          "chapter": 1,
+          "images": [
+            "https://res.cloudinary.com/db5rbto6c/image/upload/v1770222187/01_b2dzqb.jpg",
+            "https://res.cloudinary.com/db5rbto6c/image/upload/v1770222187/02_wxzofk.jpg",
+            "https://res.cloudinary.com/db5rbto6c/image/upload/v1770222187/03_g0onkv.jpg",
+            "https://res.cloudinary.com/db5rbto6c/image/upload/v1770222187/04_vhzcfp.jpg",
+            "https://res.cloudinary.com/db5rbto6c/image/upload/v1770222187/05_l1szhh.jpg",
+            "https://res.cloudinary.com/db5rbto6c/image/upload/v1770222188/06_naxzav.jpg",
+            "https://res.cloudinary.com/db5rbto6c/image/upload/v1770222189/07_jfetea.jpg",
+            "https://res.cloudinary.com/db5rbto6c/image/upload/v1770222190/08_yrudn3.jpg",
+            "https://res.cloudinary.com/db5rbto6c/image/upload/v1770222190/09_misk3s.jpg"
+          ]
+        }
+      ]
+    }
+  ]
+}
