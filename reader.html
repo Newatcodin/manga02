@@ -5,7 +5,7 @@
 <div id="pages"></div>
 <script>
 const chapter=new URLSearchParams(location.search).get("chapter");
-fetch("https://opensheet.elk.sh/YOUR_SHEET_ID/chapters")
+fetch("https://docs.google.com/spreadsheets/d/1m1h7u9hYJ4y8doenOYFpQKv-djOJtrGWtLMVrmqGkKQ/edit?gid=69233323#gid=69233323")
 .then(r=>r.json())
 .then(d=>{
  const ch=d.find(x=>x.chapter==chapter);
