@@ -1,26 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Admin Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { background:#0d0d0d; color:white; display:flex; justify-content:center; align-items:center; height:100vh; font-family:Arial,sans-serif; }
-    .login-box { background:#141414; padding:30px; border-radius:12px; width:300px; text-align:center; }
-    input { width:80%; padding:10px; margin:10px 0; border-radius:8px; border:none; }
-    button { padding:10px 20px; border:none; border-radius:8px; background:#f90; cursor:pointer; font-weight:bold; }
-  </style>
-</head>
-<body>
-<div class="login-box">
-  <h2>Admin Login</h2>
-  <input id="password" type="password" placeholder="Password"><br>
-  <button onclick="login()">Login</button>
-  <p id="error" style="color:red;"></p>
-</div>
+<body style="background:black;color:white;font-family:Arial;padding:20px">
+<h2>Admin Panel</h2>
+<p>Password: <input id="pw" type="password"></p>
+<button onclick="login()">Login</button>
 <script>
 function login(){
-  const p = document.getElementById("password").value;
-  if(p==="132024"){ window.location.href="admin.html"; } else { document.getElementById("error").innerText="Incorrect password"; }
+  if(pw.value==="132024"){
+    alert("Admin access granted (future uploads)");
+  } else {
+    alert("Wrong password");
+  }
 }
 </script>
 </body>
